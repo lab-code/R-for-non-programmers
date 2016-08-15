@@ -1,3 +1,10 @@
+# Functions
+#' We've already seen functions like rep, seq or sample in the vector part
+#' 
+
+
+
+
 # We can do a bunch by wrting consecutive lines of code and then runnign it
 add_numbers = function(num1, num2){
   return(num1 + num2)
