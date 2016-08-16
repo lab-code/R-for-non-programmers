@@ -1,9 +1,19 @@
+# Functions
+#' We've already seen functions like rep, seq or sample in the vector part
+#'
+
+number_vec = c(1:25)
+
+sum(number_vec)
+mean(number_vec)
+length(number_vec)
+
+
 # We can do a bunch by wrting consecutive lines of code and then runnign it
 add_numbers = function(num1, num2){
   return(num1 + num2)
 }
 
-# calculate trialngle hypotenuse
 calc_hypotenuse = function(sideA, sideB){
   hypotenuse = sqrt((sideA ^ 2) + (sideB ^ 2))
   return(hypotenuse)
