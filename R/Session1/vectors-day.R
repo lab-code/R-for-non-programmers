@@ -9,7 +9,6 @@ vystup = c("MALE", "FEMALE", "MALE", "FEMALE")
 
 sequence = seq(1, 5, 1/10)
 
-
 sampling_vec = 1:25
 sample(sampling_vec, 25, rep = T)
 
@@ -26,15 +25,10 @@ not_favorite = names[c(8:9)]
 names = names[-c(8:9)]
 names = c(names, not_favorite)
 
-place_index = which(table$Title == "The Place Beyond the Pines")
-
 1:5 + -1:-5
-
 
 numbers = seq(from = 1, to = 99, by = 2)
 winners = sample(numbers, 10)
-genders = rep(c("M", "F"), Length(numbers)/2)
+genders = rep(c("M", "F"), length(numbers)/2)
 
 indices_winners = which(numbers %in% winners)
-
-
