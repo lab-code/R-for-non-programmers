@@ -1,17 +1,22 @@
-df_movies=  read.table("../data/hejtmy-ratings.csv", header = T, sep = ",")
+library(ggplot2)
+
+df_movies = read.table("../data/hejtmy-ratings.csv", header = T, sep = ",")
 
 # lets control what we have
 head(df_movies)
-
 
 # QUESTIONS!
 
 ## Subsetting - selectioning
 # what is the first movie that I rated?
+class(df_movies$created)
 
 # WHat is the most watched movie that I rated?
+max(df_movies$Num.Votes)
+df_movies[order(-df_movies$Num.Votes), ][1, ]
 
 # What is the oldes movie I rated?
+
 
 # What are my favorite movies?
 
