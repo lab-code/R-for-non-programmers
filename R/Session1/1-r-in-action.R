@@ -56,3 +56,6 @@ df_movies$Title[df_movies$You.rated  <= 3 | df_movies$You.rated >= 8]
 
 hist(df_movies$You.rated)
 
+
+df_movies$after_2000 <- df_movies$Year > 2000
+t.test(df_movies$You.rated ~ df_movies$after_2000)
