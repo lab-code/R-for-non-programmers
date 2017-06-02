@@ -17,7 +17,6 @@ class("5")
 #Funnily enough, this also works in R
 "char" = "h"
 
-
 bool = TRUE
 bool2 = 2 < 3
 class(bool)
