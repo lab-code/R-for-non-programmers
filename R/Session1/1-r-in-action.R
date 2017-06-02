@@ -1,6 +1,9 @@
 library(ggplot2)
 
-df_movies = read.table("../data/hejtmy-ratings.csv", header = T, sep = ",")
+df_movies <- read.table("../data/hejtmy-ratings.csv", header = T, 
+                        sep = ",", stringsAsFactors = F)
+
+df_movies <- read.table("C:/Users/hejtmy/Downloads/")
 
 # lets control what we have
 head(df_movies)
@@ -13,7 +16,9 @@ class(df_movies$created)
 
 # WHat is the most watched movie that I rated?
 max(df_movies$Num.Votes)
-df_movies[order(-df_movies$Num.Votes), ][1, ]
+df_movies[order(-df_movies$Num.Votes), ]
+
+df_movies[df_movies$You.rated > 7, ]
 
 # What is the oldes movie I rated?
 
@@ -41,3 +46,13 @@ ggplot(df_movies, aes(You.rated, fill = above2000)) + geom_histogram(bins = 10)
 # What 
 
 summary(df_movies)
+
+# WHAT movies have rating above 7
+df_movies$Title[df_movies$You.rated == 10]
+
+df_movies$Title[df_movies$You.rated  >= 7 & df_movies$You.rated <= 9]
+
+df_movies$Title[df_movies$You.rated  <= 3 | df_movies$You.rated >= 8]
+
+hist(df_movies$You.rated)
+

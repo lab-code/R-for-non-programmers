@@ -12,14 +12,23 @@ sequence = seq(1, 5, 1/10)
 sampling_vec = 1:25
 sample(sampling_vec, 25, rep = T)
 
+set.seed(999)
 names = c("Rickon", "Rob", "Bran", "Sansa", "Arya", "Ned", "Catelyn", "Jon", "Hodor")
 sample(names, 1)
 
+is_arya <- names == "Arya"
+names[is_arya]
+
 arya_index = which(names == "Arya")
+which(is_arya)
 names[arya_index]
 
 names = names[-c(1, 4)]
 names = c(names, "Sansa", "Rickon")
+
+names[-(which(names == "Arya"))]
+names[names != "Arya"]
+
 
 not_favorite = names[c(8:9)]
 names = names[-c(8:9)]
