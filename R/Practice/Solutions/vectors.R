@@ -41,7 +41,7 @@ sd(one_to_hundred)
 # 9
 # Change the vector that it starts at 101 and continues to 200 
 new_vec <- one_to_hundred + 100
-
+new_vec
 # 10
 #Change the vector that only every second number is increased by 100. eg. 1,102,3,104 etc.
 one_to_hundred + c(0, 100)
