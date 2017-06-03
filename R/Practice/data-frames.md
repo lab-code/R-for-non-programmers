@@ -86,7 +86,7 @@ df_top_themes <- df_themes[1:10, ]
 barplot(df_top_themes$percent, names.arg = df_top_themes$theme, 
         xlab="Number of occurences", ylab = "Theme name", cex.names=0.5)
 ```
-!()[https://raw.githubusercontent.com/lab-code/R-for-non-programmers/master/R/Practice/bob-fig.png]
+![](https://raw.githubusercontent.com/lab-code/R-for-non-programmers/master/R/Practice/bob-fig.png)
 
 10. Select a first episode ever aired and print all names of themes it actually has. You will need function ?colnames and somehow select only those names that have 1 in the row. You might also need to convert data frame to vector - google how it can be done.
 ```{r}
