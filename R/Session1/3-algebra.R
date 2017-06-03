@@ -18,3 +18,6 @@ sec_in_hour = 60 * sec_in_minute
 
 # Unlike oher programming languages, R can't do algebraic operations on strings, so
 "I" + "am" + "great" # won't work - it would in Javascript, Ruby, c# etc.
+hours_in_year <- 365*24
+
+4 %% 5
