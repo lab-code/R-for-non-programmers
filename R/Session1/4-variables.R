@@ -9,9 +9,9 @@ class(c(1, 2, 3))
 class(c(1:3))
 
 # There is a limited number of varible types that you need to fit in, but you should be fine :)
-str = "long character" # character vector
+str <- "long character" # character vector
 class(str)
-char = 'c' #single quotes should work as well - BEWARE Matlab, C# or and others will kill you for that, stick to ""
+char <- 'c' #single quotes should work as well - BEWARE Matlab, C# or and others will kill you for that, stick to ""
 class(char)
 class("5")
 #Funnily enough, this also works in R

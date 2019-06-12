@@ -1,10 +1,10 @@
 set.seed(1)
-age = sample(c(10:25), 25, replace = T)
-gender = sample(c("male", "female"), 25, replace = T)
-smoker = sample(c(T, F), 25, replace = T)
-BMI = rnorm(25, 20, 2)
+age <- sample(c(10:25), 25, replace = T)
+gender <- sample(c("male", "female"), 25, replace = T)
+smoker <- sample(c(T, F), 25, replace = T)
+BMI <- rnorm(25, 20, 2)
 
-df = data.frame(age = age, gender = gender, smoker = smoker, BMI = BMI)
+df <- data.frame(age = age, gender = gender, smoker = smoker, BMI = BMI)
 
 ncol(df)
 nrow(df)

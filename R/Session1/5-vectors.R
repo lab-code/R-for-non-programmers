@@ -9,16 +9,16 @@ num3 = pi
 
 #' Vectors allow us to save multiple values in the same variable
 #' It seems useless but will be awesome when we get to looping, data.frames etc.
-string_vec = c(str1, str2, str3)
+string_vec <- c(str1, str2, str3)
 
-numeric_vec = c(num1, num2, num3)
+numeric_vec <- c(num1, num2, num3)
 
-numeric_vec2 = 1:5
-numeric_vec3 = -5:-10
+numeric_vec2 <- 1:5
+numeric_vec3 <- -5:-10
 
 # Vectors can oly store one TYPE of variabe
 
-combined_vec = c(str1, num2)
+combined_vec <- c(str1, num2)
 # Well? No ERROR? let's have a look at it
 combined_vec
 class(combined_vec)
@@ -30,15 +30,15 @@ class(combined_vec)
 
 #interesting way to create vectors
 # REPETITION
-all_ones = rep(1, 100)
+all_ones <- rep(1, 100)
 
 # SEQUENCING
-small_increments = seq(1, 100, by = 0.1)
-larger_increments = seq(2, 100, length.out = 50)
+small_increments <- seq(1, 100, by = 0.1)
+larger_increments <- seq(2, 100, length.out = 50)
 
 # RANDOM
 set.seed(666)
-uniform_deviations = runif(25)
+uniform_deviations <- runif(25)
 
 # Vector access
 numeric_vec[1] * numeric_vec[2]
