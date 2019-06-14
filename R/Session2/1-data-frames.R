@@ -1,14 +1,14 @@
 # Data frames
-row_order = seq(1:30)
-gender = rep(c("Male", "Female"), 15)
-age = sample(c(5:40), 15)
-df = data.frame(gender = gender, age = age)
+row_order <- seq(1:30)
+gender <- rep(c("Male", "Female"), 15)
+age <- sample(c(5:40), 15)
+df <- data.frame(gender = gender, age = age)
 
 
 # reading in data.frames
-tab = read.csv()
-tab = read.delim()
-tab = read.table("../Data/hejtmy-ratings.csv", sep = ",", header = T)
+tab <- read.csv()
+tab <- read.delim()
+tab <- read.table("../Data/hejtmy-ratings.csv", sep = ",", header = T)
 
 # Extracting columns from data frames - similar to lists
 # multiple ways to extract position
@@ -38,7 +38,7 @@ tab[5,]$Year
 
 #' The process is extremely simillar to wat we did previously, we just need to select entire rows
 
-year_2000 = tab$Year >= 2000
-data_2000 = tab[year_2000,] #done
-data_2000b = tab[tab$Year >=2000, ]
+year_2000 <- tab$Year >= 2000
+data_2000 <- tab[year_2000,] #done
+data_2000b <- tab[tab$Year >=2000, ]
 

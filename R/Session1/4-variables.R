@@ -17,11 +17,11 @@ class("5")
 #Funnily enough, this also works in R
 "char" = "h"
 
-bool = TRUE
-bool2 = 2 < 3
+bool <- TRUE
+bool2 <- 2 < 3
 class(bool)
 
-ls = list(number = 1, text = "Interesing")
+ls <- list(number = 1, text = "Interesing")
 ls$number
 ls$text
 class(ls)
@@ -35,14 +35,14 @@ b = 1
 # will save value of b into the variable strin
 
 # R is a dynamic language so you can define variables as you type
-num1 = 5
-num2 = a * 3;
-ls = list(num2 = num1, num2 = num2)
+num1 <- 5
+num2 <- a * 3
+ls <- list(num2 = num1, num2 = num2)
 
 print(ls$num1 * ls$num2)
 
 # CONVERTING VARIABLES
-num_vec1 = 1:5
+num_vec1 <- 1:5
 as.character(num_vec1)
 as.numeric("1")
 

@@ -6,9 +6,9 @@
 #' asignments
 #' 
 #' = <-
-num1 = 5
-num2 = 4
-arr1 = c(num1, num2)
+num1 <- 5
+num2 <- 4
+arr1 <- c(num1, num2)
 
 #' comparing
 #' 

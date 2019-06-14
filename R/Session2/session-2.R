@@ -16,7 +16,7 @@ rating_before_2000 <- movies[movies$Year < 2000, ]$You.rated
 t.test(rating_after_2000, rating_before_2000)
 
 # Anova
-anova = aov(You.rated ~ Year, movies) 
+anova <- aov(You.rated ~ Year, movies) 
 summary(anova)
 
 # Selecting more complicated stuff
@@ -26,5 +26,5 @@ only_comedy <- movies[grepl("comedy", movies$Genres),]
 plot(movies$Year, movies$You.rated)
 hist(movies2000$You.rated)
 
-plt = ggplot(movies, aes(x= Year, y = You.rated))
+plt <- ggplot(movies, aes(x= Year, y = You.rated))
 plt + geom_point()

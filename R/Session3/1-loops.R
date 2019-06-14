@@ -3,7 +3,7 @@ for (i in 1:5){
   print(i)
 }
 
-results = c("ERROR", "WARNING", "GOOD", "ERROR")
+results <- c("ERROR", "WARNING", "GOOD", "ERROR")
 for(result in results){
   print(result)
 }
@@ -15,9 +15,9 @@ for(i in length(results)){
 
 
 # WHILE
-index = 1
-result = results[index]
+index <- 1
+result <- results[index]
 while(result != "GOOD"){
-  index = index + 1
-  result = results[index]
+  index <- index + 1
+  result <- results[index]
 }

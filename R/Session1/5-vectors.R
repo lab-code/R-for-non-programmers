@@ -1,11 +1,11 @@
 #' Vectors
 
-str1 = "I"
-str2 = "am"
-str3 = "great"
-num1 = 0
-num2 = -5
-num3 = pi
+str1 <- "I"
+str2 <- "am"
+str3 <- "great"
+num1 <- 0
+num2 <- -5
+num3 <- pi
 
 #' Vectors allow us to save multiple values in the same variable
 #' It seems useless but will be awesome when we get to looping, data.frames etc.
@@ -46,6 +46,6 @@ string_vec[2]
 string_vec[c(1:3)]
 
 # vector math
-num_vec1 = 1:5
-num_vec2 = -1:-5
+num_vec1 <- 1:5
+num_vec2 <- -1:-5
 num_vec2 + num_vec1
