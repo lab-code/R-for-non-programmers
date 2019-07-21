@@ -2,7 +2,7 @@
 title: "Vectors and vector subsetting"
 author: "Lukáš 'hejtmy' Hejtmánek"
 date: "21/07/2019"
-output: html_document
+output: github_document
 ---
 
 ```{r setup, include=FALSE}

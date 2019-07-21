@@ -80,7 +80,6 @@ barplot(counts, main="Favorite color by gender", beside=TRUE, legend=rownames(co
 ```
 
 ### Scatter plot
-
 ```{r}
 plot(height, salary)
 abline(lm(salary ~ height))
@@ -98,7 +97,6 @@ boxplot(height)
 
 ## Creating new variables
 When we use certain "search" often, we might as well save it in an variable
-
 
 Task
 - create new variable height_180 is "height > 180"
