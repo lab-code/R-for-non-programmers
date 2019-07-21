@@ -9,3 +9,105 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# Overview
+
+Benefits
+- It's free!!!
+- It's multi platform
+- It's actively developed
+- It has wide community of package developpers, online support
+- It has command line - interpretted language
+- It can draw beautiful graphs
+- It's easy unlike other programming languages
+- It's made for numerical analysis (unlike python)
+- It has elegant code (unlike spss) and is generally more powerfull
+- It can deal with any data - parsing webpages, loading sql, loading data from google sheets etc.
+
+Cons
+- learning curve
+- in the beginning, takes getting used to and takes longer than SPSS or excel
+- limited visual 
+
+## Demostrations
+[Ebola data](https://gallery.shinyapps.io/Ebola-Dynamic/)
+[Bus data](https://gallery.shinyapps.io/086-bus-dashboard/)
+[Lego sets](https://shiny.rstudio.com/gallery/lego-set.html)
+[Movie data](https://shiny.rstudio.com/gallery/movie-explorer.html)
+
+## Your way around R studio
+- Environemtn
+- text editor
+- console
+- terminal
+- History
+- File manager
+- Global options/project options
+
+
+## Variables and functions
+Examples of variables adn functions
+
+```{r}
+number <- -5
+abs(number)
+log(abs(number))
+exp(number)
+
+char <- "hello all"
+toupper(char)
+paste(char, "you in here")
+
+vec <- 1:100
+floor(vec)
+
+```
+Many of the basic functions can be found [here](statmethods.net/management/functions.html)
+
+## Help in R and online
+You can get help to any function in R by typing ?
+
+```{r}
+# ?read.csv
+```
+
+# Packages
+
+Packages are packaged 
+
+```{r}
+library(ggplot2)
+# install.packages("psych")
+```
+
+# Script example and breakdown
+
+```{r}
+library(ggplot2)
+head(mpg) #function
+str(mpg)
+summary(mpg) #function
+g <- ggplot(mpg, aes(class))
+g + geom_bar()
+```
+
+
+```{r}
+mpg <- ggplot2::mpg
+# fitting simple anova model
+cty_man_aov <- aov(cty ~ manufacturer, mpg)
+summary(cty_man_aov)
+```
+
+```{r}
+g <- ggplot(mpg, aes(manufacturer, cty))
+g + geom_boxplot()
+```
+
+# Coding style and recommendation
+
+Why coding style is important
+- 
+
+General recommendations
+
+Coding style is described "here"

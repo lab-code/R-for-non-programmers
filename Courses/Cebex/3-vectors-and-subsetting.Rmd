@@ -44,6 +44,10 @@ Tasks
 ```{r}
 cities <- c("Prague", "Madrid", "London", "Berlin", "Rome")
 temperatures <- seq(36.3,40.5,0.1)
+roulette_numbers <- 0:36
+roulette_colors <- c("green", rep(c("red", "black"), 18))
+weekdays <- c("monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday")
+weekdays_10 <- rep(weekdays, 10)
 ```
 
 ### Randomizing
@@ -69,6 +73,12 @@ Tasks
  - set seed to 666
  - sample temeprature of 10 people and save to subject_temperature
  - sample 10 roulette numbers and save to roulette_turns
+ 
+```{r}
+set.seed(666)
+subject_temperature <- sample(temperatures, 10, replace = T)
+roulette_turns <- sample(roulette_numbers, 10, replace = T)
+```
 
 ## Accessing vectors
 
@@ -172,12 +182,13 @@ vec <- 1:100
 
 mean(vec)
 median(vec)
+summary(vec)
 
+table(weekdays_10)
 ```
 
 tasks
 - what is the mean and median temeprature of people in the 
-
 
 
 # Final exam

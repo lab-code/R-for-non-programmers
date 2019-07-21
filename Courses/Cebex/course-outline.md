@@ -35,6 +35,7 @@ random subsetting
 
 Lesson 5
 Statistical vector functions
+randomizing normal and uniform distributions
 plotting vectors, comparing vectors
 basics of statistics (t-test on two vectors etc.)
 

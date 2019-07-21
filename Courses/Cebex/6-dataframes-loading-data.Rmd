@@ -1,0 +1,23 @@
+---
+title: "Loading data"
+author: "Lukáš 'hejtmy' Hejtmánek"
+date: "22/07/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#
+
+```{r}
+getwd()
+#setwd
+```
+
+
+```{r}
+mydata <- data.frame(age=numeric(0), gender=character(0), weight=numeric(0))
+mydata <- edit(mydata)
+```

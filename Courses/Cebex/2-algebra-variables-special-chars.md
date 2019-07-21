@@ -21,7 +21,6 @@ Variables have to start with a letter and can include underscores and
 numbers
 
 ``` r
-
 car1 <- "Audi"
 car_2 <- "BMW"
 ```
@@ -78,7 +77,6 @@ class("5")
 ### Logical
 
 ``` r
-
 bool <- TRUE
 bool2 <- 2 < 3
 class(bool)
@@ -122,6 +120,10 @@ num_vec1 <- 1:5
 as.character(num_vec1)
 as.numeric("1")
 ```
+
+Task - create a list called YEAR, which has field days=365, weeks=52 -
+add field to the list called minues and a field called seconds - print
+days field as a “character” class
 
 ## Variable operations
 
@@ -169,7 +171,7 @@ num1 < num2
 "hello" > 0
 ```
 
-And and OR
+And and OR selections
 
 ``` r
 # & |
@@ -192,8 +194,6 @@ found [here](https://www.datamentor.io/r-programming/environment-scope/)
 version
 pi
 ```
-
-## Functions and help
 
 # Naming conventions and special characters
 
