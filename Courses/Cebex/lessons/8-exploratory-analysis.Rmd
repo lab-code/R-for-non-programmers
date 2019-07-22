@@ -1,0 +1,85 @@
+---
+title: "Exploratory analysis and dplyr"
+author: "Lukáš 'hejtmy' Hejtmánek"
+date: "22/07/2019"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(psych)
+```
+
+
+
+```{r}
+df <- read.csv("../../../data/student-alcohol-consumption/school-preprocessed.csv", sep = ";")
+```
+
+## Subsetting data.frames
+
+```{r, results='hide'}
+df[1, ]
+df[df$sex == "F",]
+df[df$large_family, ]
+table(df[df$any_support, "address"])
+table(df[!df$any_support,]$address)
+```
+
+Tasks:
+- what is the mean total_perfomance for rural vs urban groups?
+- what is the mean health for men
+- what is the frequency of parent_higher_ed and higher? 
+
+## Descriptive stats easier
+
+```{r}
+library(psych)
+```
+```{r}
+describe(df$age)
+describeBy(df$health, df$address)
+```
+## plotting
+
+# Dplyr syntax
+
+```{r}
+library(dplyr)
+```
+## select
+```{r, results='hide'}
+select(df, address)
+select(df, address, famsize, Mjob)
+```
+
+## filter
+```{r, results='hide'}
+filter(df, address=='rural', freetime > 2)
+filter(df, schoolsup, famsize == "GT3" | goout < 3)
+```
+
+## summarize
+```{r}
+summarize(df, avg=mean(health), sd=sd(health))
+```
+
+## %>%
+Pipe operator allows us to chain commands
+
+```{r}
+df %>% filter(address=='rural') %>% select(health, activities, guardian) %>% head()
+```
+
+## group_by
+```{r}
+df %>% group_by(address) %>% summarize(avg=mean(health), sd=sd(health))
+```
+
+
+Tasks
+- 
+
+# Graphing and stats
+
+## Using dplyr to plot data

@@ -20,7 +20,7 @@ num1 < num2
 
 # logical
 #' 
-#' & |
+#' #' & |
 
 num1 > num2
 (num1 > num2) && (num2 < num1)

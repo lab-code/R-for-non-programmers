@@ -1,0 +1,109 @@
+---
+title: "Vector statistics"
+author: "Lukáš 'hejtmy' Hejtmánek"
+date: "21/07/2019"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Vector statistics
+
+Let's create data first
+
+Task:
+- set seed of 666
+- create a vector of length 100 likes_blue of randomized TRUE and FALSE
+- create a vector of length 100 favorite_color of randomized ("red", "green", "yellow", "blue")
+- create a vector of length 100 gender of randomized "male", "female"
+- create a vector of length 100 height with a mean of 170 and SD 10 (use function rnorm)
+- create a vector of length 100 salary with a mean of 29000 and SD 5000
+- create a vector of length 100 hours_slept wchih is an uniform sample from 5-11
+
+```{r}
+set.seed(666)
+likes_blue <- sample(c(T,F), 100, replace=T)
+favorite_color <- sample(c("red", "green", "yellow", "blue"), 100, replace=T)
+gender <- sample(c("female", "male"), 100, replace=T)
+height <- rnorm(100, 170, 10)
+salary <- rnorm(100, 29000 , 5000)
+hours_slept <- sample(5:11, 100, replace=T)
+```
+
+Summaries of the variables
+```{r}
+table(likes_blue)
+table(gender)
+summary(height)
+summary(hours_slept)
+```
+
+## Basic statistical tests
+```{r}
+cor(salary, height)
+t.test(salary ~ gender)
+lm_salary_height <- lm(salary ~ height)
+summary(lm_salary_height)
+summary(aov(salary ~ favorite_color))
+```
+
+
+## Subsetting things
+Tasks
+- what is the mean hours slept for people who like blue?
+- what is the distributions of fravorite colors for people with salary above 35k?
+- does the correlation change between salary adn height between women and men?
+
+
+## Plotting things
+
+### Histogram
+
+```{r}
+hist(height)
+hist(height, breaks = 20)
+hist(height, breaks = 50,  col="blue")
+d <- density(mtcars$mpg) # returns the density data 
+plot(d) # plots the results
+```
+
+### Bar plot
+
+
+```{r}
+counts <- table(favorite_color)
+barplot(counts, main="Favorite color")
+counts <- table(gender, favorite_color)
+barplot(counts, main="Favorite color by gender", beside=TRUE, legend=rownames(counts))
+```
+
+### Scatter plot
+```{r}
+plot(height, salary)
+abline(lm(salary ~ height))
+title("Regression of salary on height")
+```
+
+Tasks
+- plot salary as an effect of hours slept
+- plot two separate plots (one after another) for salary as an effect of height separately for males and females 
+
+### Boxplots
+```{r}
+boxplot(height)
+```
+
+## Creating new variables
+When we use certain "search" often, we might as well save it in an variable
+
+Task
+- create new variable height_180 is "height > 180"
+- create new variable dislike_red wchih is for people who didn't say they like "red"
+- create new variable female_blue which is true for females who like blue color
+```{r}
+height_180 <- height > 180
+dislike_red <- favorite_color != "red"
+female_blue <- gender=="female" & favorite_color == "blue"
+```

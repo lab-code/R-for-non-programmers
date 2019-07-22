@@ -1,0 +1,217 @@
+---
+title: "Vectors and vector subsetting"
+author: "Lukáš 'hejtmy' Hejtmánek"
+date: "21/07/2019"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# vectors 
+
+Basically anything in R is a vector. IN other languages, these may be called arrays (jacascript/c#) or lists(python). You can get length of a vector 
+
+```{r}
+num <- 1
+length(num)
+length("hello")
+```
+
+## Creating vectors
+Most commonly you are going to be creating vectors by reading in data, but here are few important functions to generate your own dataset.
+
+```{r}
+vec <- c(1,2,3,4,5,6,7,8,9)
+vec <- seq(1, 9, 1)
+vec <- rep(1, 10)
+vec <- 1:9
+vec2 <- 10:19
+vec_complete <- c(vec, vec2)
+```
+
+Tasks
+
+- Create vector of 5 cities called cities with 5 EU capitals. It must include Prague
+- Create vector temperatures of human temperature from 36.3 to 40.5 with 0.1 steps
+- create vector roulette_numbers with numbers from 0 to 36
+- Create vector called roulette_colors with "green" and then 18 times "red" and "black"
+- create vector called weekdays with each day of the week 
+- create vector called weekdays_10 which is days in 10 weeks consecutively 
+- Crete vector of odd numbers call odd_numbers with numbers from 1 to 99
+- Create vector of length 100 called true_false (T, F, T, F, T, F, T, F ...)
+
+```{r}
+cities <- c("Prague", "Madrid", "London", "Berlin", "Rome")
+temperatures <- seq(36.3,40.5,0.1)
+roulette_numbers <- 0:36
+roulette_colors <- c("green", rep(c("red", "black"), 18))
+weekdays <- c("monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday")
+weekdays_10 <- rep(weekdays, 10)
+```
+
+### Randomizing
+
+```{r}
+sample(1:10, 10)
+sample(1:10, 10, replace=T)
+```
+
+Tasks
+ - sample temperature of 5 people
+ - sample 10 roulette numbers properly
+ 
+
+```{r}
+set.seed(1)
+sample(1:10, 1)
+```
+
+seeding
+
+Tasks
+ - set seed to 666
+ - sample temeprature of 10 people and save to subject_temperature
+ - sample 10 roulette numbers and save to roulette_turns
+ 
+```{r}
+set.seed(666)
+subject_temperature <- sample(temperatures, 10, replace = T)
+roulette_turns <- sample(roulette_numbers, 10, replace = T)
+```
+
+## Accessing vectors
+
+### Indexing by number
+R has 1 based indexing, meaning the first position in a vector has
+
+```{r}
+vec <- 1:9
+vec[1]
+vec[5]
+vec[vec[2]]
+vec[-5]
+vec[-c(1:4)]
+```
+
+Tasks
+- select monday from the weekdays vector
+- select all mondays from teh weekdays_10
+- select prague from the cities vector
+- select all false from the true_false vector
+- select all "black numbers from the roulette numbers
+- what colours did we draw in roulette turns?
+
+### Indexing by Logical
+
+```{r}
+vec_bool <- c(T,T,F,F,T,T)
+vec_num <- 1:6
+vec_num[vec_bool]
+```
+
+R automatically repeats vectors if you run out of them
+```{r}
+bool <- c(TRUE, FALSE)
+vec <- 1:100
+vec[bool]
+vec[FALSE]
+```
+
+Taks
+- use the true_false vector to create the odd_numbers vector
+- select every other day in the weekdays_10 vector
+
+
+### Indexing by condition
+`Which` function
+
+```{r}
+which(cities == "Prague")
+i_prague <- which(cities == "Prague")
+cities[i_prague]
+cities[-i_prague]
+
+cities[cities != "Prague"]
+```
+
+`%in` function
+
+```{r}
+fav_cities <- c("Prague", "London")
+which(cities %in% fav_cities)
+```
+
+Task
+- what are indices of "monday" in your weekdays_10 vector?
+- what are indices of either weekend day in your weekdays_10 vector?
+- what are indices of "black" in your roulettes_colors vector?
+
+```{r}
+
+```
+
+## Selecting by condition
+
+Most common and easiest to read
+```{r}
+temp_above_37 <- temperatures > 37
+temperatures[temp_above_37]
+temperatures[temperatures > 37]
+```
+
+Tasks
+- how many possible temperatures are above 37.5C?
+- 
+
+## Vector functions
+
+### Vector math
+
+Adding vectors togehter
+```{r}
+
+```
+
+Tasks
+
+Most R functions work on vectors
+
+```{r}
+vec <- 1:100
+
+mean(vec)
+median(vec)
+summary(vec)
+
+table(weekdays_10)
+```
+
+tasks
+- what is the mean and median temeprature of people in the 
+
+
+# Final exam
+
+Each of these should be written in code on a single line
+
+1. Create a vector of years between 1924 until 2019 by one year
+2. Create a vector of chinese zodiac for each year, beginning with rat, repeating 10 times (120 years)
+3. What years are for "horse"?
+4. What sign was year 1987?
+5. What is the sum of years for the "rooster"?
+6. What is the median year for the "dragon"
+7. What is the 3rd_year of a goat modulo 7?
+
+```{r}
+signs <- rep(c("rat", "ox", "tiger", "rabbit", "dragon", "snake", "horse", "goat", "monkey", "rooster", "dog", "pig"), 10)
+years <- 1924:2019
+i_years <- years - 1923
+
+years[i_years[signs=="horse"]] #1
+signs[years==1987] #2
+sum(years[i_years[signs=="rooster"]], na.rm=T)
+median(years[i_years[signs=="dragon"]], na.rm=T)
+years[i_years[signs=="goat"]][3] %% 7
+```
+
