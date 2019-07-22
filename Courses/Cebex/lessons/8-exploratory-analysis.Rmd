@@ -1,0 +1,18 @@
+---
+title: "Exploratory analysis and dplyr"
+author: "Lukáš 'hejtmy' Hejtmánek"
+date: "22/07/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Accessing data frames
+Columns are basically just list fields, so can be accessed with `$`
+
+```{r}
+df <- 
+
+```

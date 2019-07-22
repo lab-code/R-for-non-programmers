@@ -9,25 +9,94 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-#
+# Getting and setting folders
+
+All loading and saving is going to be relative to your current "working directory". You can get working directory by `getwd()` and set it by `setwd('path to new')`
 
 ```{r}
-getwd()
+#getwd()
 #setwd
 ```
 
 # Loading dataset without any issues
 
+Just check that you have correct separator and it should be fine
+```{r}
+df <- read.table("../../../data/loading-examples/example-row.txt", sep=";", header=T)
+head(df, 2)
+str(df)
+```
+
+## Checking that everything is fine
+
+```{r}
+head(df, 3)
+tail(df, 3)
+summary(df)
+str(df)
+```
+
+If you wanna view or edit the contents, you can use Rstudios `View(df)` function (capital V) or `edit(df)`. If you want to save edited df, don't forget to use `df <- edit(df)`
+
+You can use `edit` to even create data.frames.
 ```{r}
 mydata <- data.frame(age=numeric(0), gender=character(0), weight=numeric(0))
-mydata <- edit(mydata)
+#mydata <- edit(mydata)
 ```
 
+## Loading options
 
-# Loading different datasets with different headers/commas/
+separator
+header
+decimal-point
+encoding
 
-# Loading proper datase 
-Donwload dataset about [student alcohol comsumtion](https://www.kaggle.com/uciml/student-alcohol-consumption/).
+### Strings vs factors
+
+Factors are integers with character labels
+```{r}
+levels(df$favorite_color)
+as.numeric(df$favorite_color[1:10])
+as.character(df$favorite_color[1:10])
+```
+
+if you don't wan't that conversion by default, you can load the table with `stringsAsFactors = FALSE` or you can convert them later with `as.character`.
+
+[More on the diferences here](https://swcarpentry.github.io/r-novice-inflammation/12-supp-factors/)
+
+# Loading data from other sources
+
+## Web
 
 ```{r}
+df <- read.table("https://raw.githubusercontent.com/lab-code/R-for-non-programmers/cebex/data/loading-examples/example-row.txt", sep=";", header=T)
+head(df, 2)
 ```
+
+more on direct loading from the web [www.r-bloggers.com/getting-data-from-an-online-source](https://www.r-bloggers.com/getting-data-from-an-online-source/)
+
+## Reading excel
+```{r}
+#install.packages("readxl)
+df <- readxl::read_xlsx("../../../data/loading-examples/data.xlsx", sheet="Sheet2")
+head(df, 2)
+```
+
+# Loading different datasets with different headers/commas/issues
+
+```{r}
+list.files("../../../data/loading-examples/")
+```
+
+### Final exam
+
+- read in all files from the loading-examples dataset into table df
+- check that you load it well by running the following code
+
+```{r}
+df_correct <- read.table("../../../data/loading-examples/example-row.txt", sep=";", header=T)
+all(sapply(df, class)==c("integer","factor","factor","numeric","numeric","integer"))
+all(df==df_correct)
+```
+
+[Complete tutorial on getting data into R](https://www.datacamp.com/community/tutorials/r-data-import-tutorial)

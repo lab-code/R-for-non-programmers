@@ -1,0 +1,29 @@
+---
+title: "Data preparation"
+author: "Lukáš 'hejtmy' Hejtmánek"
+date: "22/07/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Merging datasets
+
+## rbind
+
+## cbind
+
+
+Donwload dataset about [student alcohol comsumtion](https://www.kaggle.com/uciml/student-alcohol-consumption/).
+
+```{r}
+student1 <- read.table("../../../data/student-alcohol-consumption/student-mat.csv", sep = ",", header=T, stringsAsFactors = F)
+student2 <- read.table("../../../data/student-alcohol-consumption/student-por.csv", sep = ",", header=T, stringsAsFactors = F)
+df_students <- merge(student1, student2, by=c("school","sex","age","address","famsize","Pstatus","Medu","Fedu","Mjob","Fjob","reason","nursery","internet"))
+print(nrow(df_students))
+```
+
+# Recoding variables
