@@ -16,8 +16,18 @@ getwd()
 #setwd
 ```
 
+# Loading dataset without any issues
 
 ```{r}
 mydata <- data.frame(age=numeric(0), gender=character(0), weight=numeric(0))
 mydata <- edit(mydata)
+```
+
+
+# Loading different datasets with different headers/commas/
+
+# Loading proper datase 
+Donwload dataset about [student alcohol comsumtion](https://www.kaggle.com/uciml/student-alcohol-consumption/).
+
+```{r}
 ```
