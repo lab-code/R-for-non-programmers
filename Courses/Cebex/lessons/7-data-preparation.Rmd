@@ -187,5 +187,5 @@ important arguments are:
 RECOMMENDATION: DON'T save row names, use ";" as a separator
 
 ```{r}
-#
+#write.table(df_students, "students-preprocessed.txt", sep=";", row.names = F)
 ```

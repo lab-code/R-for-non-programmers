@@ -109,12 +109,12 @@ head(merge(df_test, df_test_2, by="id"))
 ```
 
     ##   id gender test_result
-    ## 1  1      F    78.49158
-    ## 2  2      M   113.91820
-    ## 3  3      M   106.95372
-    ## 4  4      M    93.50493
-    ## 5  5      M    66.86754
-    ## 6  6      F    81.60036
+    ## 1  1      F   113.27799
+    ## 2  2      M   127.56239
+    ## 3  3      M   101.04026
+    ## 4  4      M   118.59421
+    ## 5  5      F   104.19125
+    ## 6  6      F    92.44767
 
 By default merge only produces combination of both datasets, dropping
 any rows whcih are not matched in both datasets
@@ -281,14 +281,15 @@ either\_higher\_ed which is true if either father or mother education is
 higher - create variable relationships which is a sum of famrel and a 3
 if romantic is yes - create variable total\_failures which is a sum of
 math and portugeese failures (because of NA values, you will need
-`rowSums` function)
+`rowSums` function) - create variable total\_perfomance for math and
+portugeese which is a sum of G1-G3
 
 ``` r
 df_students$large_family <- df_students$famsize == "GT3"
 df_students$any_support <- df_students$famsup | df_students$schoolsup
 df_students$relationships <- df_students$famrel + 3*(df_students$romantic == "yes")
-df_students$total_failures <- df_students[,c("failures.portugese", "failures.math")]
-#df_students$both_courses <- df_students$
+df_students$total_failures <- rowSums(df_students[,c("failures.portugese", "failures.math")], na.rm = T)
+df_students$both_courses <- !(is.na(df_students$studytime.math) | is.na(df_students$studytime.portugese))
 #df_students$parent_higher_ed <- df_students$
 ```
 
@@ -301,5 +302,5 @@ important arguments are: - sep - row.names - col.names - dec
 RECOMMENDATION: DON’T save row names, use “;” as a separator
 
 ``` r
-#write.table(df_students, "school_preprocessed.csv", row.names=F, sep=";")
+#write.table(df_students, "students-preprocessed.txt", sep=";", row.names = F)
 ```
