@@ -20,9 +20,9 @@ head(df)
 What are the table dimensions?
 
 1)  1 column and 404 rows
-2)  69 columns and 403 rows
+2)  69 columns and 403 rows\*
 3)  69 columns and 404 rows
-4)  403 columns and 69 rows\*
+4)  403 columns and 69 rows
 
 <!-- end list -->
 
@@ -132,4 +132,4 @@ sum(df$TREES & df$WINTER)
 
 ### Correct answers
 
-4, 1, 3, 2, 2, 4
+2, 1, 3, 2, 2, 4
