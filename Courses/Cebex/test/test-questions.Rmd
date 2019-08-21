@@ -7,6 +7,8 @@ Load the Bob ROSS dataframe from this link "https://raw.githubusercontent.com/fi
 
 Inspect it first in the browser to choose correct arguments for the `read.table` command. After loading it, inspect it with `str`, `head` and other commands to make sure you loaded it well. 
 
+**Solution:**
+
 ```{r, results='hide'}
 df <- read.table("https://raw.githubusercontent.com/fivethirtyeight/data/master/bob-ross/elements-by-episode.csv", sep=",", header = T, stringsAsFactors = F)
 str(df)
@@ -16,19 +18,23 @@ head(df)
 What are the table dimensions?
 
 a) 1 column and 404 rows
-b) 69 columns and 403 rows*
+b) **69 columns and 403 rows**
 c) 69 columns and 404 rows
 d) 403 columns and 69 rows
+
+**Solution:**
 ```{r}
 dim(df)
 ```
 
 What type of variable is the CABIN column? (choose the BEST possibility, not necessarily what R decided)
 
-a) logical*
+a) **logical**
 b) data.frame
 c) character
 d) list
+
+**Solution:**
 ```{r}
 class(df$CABIN)
 df$CABIN[1:10]
@@ -38,8 +44,10 @@ How many percent of episoded featured bushes?
 
 a) 23 %
 b) 28 %
-c) 30 %*
+c) **30 %**
 d) 49 %
+
+**Solution:**
 ```{r}
 sum(df$BUSHES)/nrow(df)
 ```
@@ -47,21 +55,23 @@ sum(df$BUSHES)/nrow(df)
 which of these episodes didn't feature guest?
 
 a) "PEACEFUL WATERS"
-b) "WINDING STREAM"*
+b) **"WINDING STREAM"**
 c) "LAKE BY MOUNTAIN"
 d) "MOUNTAINS OF GRACE"
 
+**Solution:**
 ```{r}
 df[df$GUEST == 1, "TITLE"]
 ```
 
-Which of these is the least common feature? You can get the `colsums` and `sort` function
+Which of these is the least common feature? You can get it with `colsums` and `sort` function.
 
 a) CLIFF
-b) LAKES*
+b) **LAKES**
 c) TREE
 d) FARM
 
+**Solution:**
 ```{r}
 sort(colSums(df[, 3:69]))[1:10]
 ```
@@ -71,12 +81,12 @@ How many episodes have TREES and take place in WINTER?
 a) 0
 b) 9
 c) 52
-d) 64*
+d) **64**
 
+**Solution:**
 ```{r}
 sum(df$TREES & df$WINTER)
 ```
 
-
-### Correct answers
+# Correct answers
 2, 1, 3, 2, 2, 4
